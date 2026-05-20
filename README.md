@@ -2,7 +2,7 @@
 
 A comprehensive REST API backend for a bus ticket booking platform that handles passengers, bus operators, and admin functionalities.
 
-## 🚀 Features
+## Features
 
 ### User Management
 - **Passenger Registration & Login** - Register and authenticate passengers
@@ -34,7 +34,7 @@ A comprehensive REST API backend for a bus ticket booking platform that handles 
 - **Route Management** - View and delete routes
 - **Booking Oversight** - View all bookings and delete if needed
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Java 21**
 - **Spring Boot 4.0.5**
@@ -49,7 +49,7 @@ A comprehensive REST API backend for a bus ticket booking platform that handles 
 - **Thymeleaf** - Email templates
 - **OpenHTMLtoPDF** - PDF generation
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/main/java/com/example/FastX/
@@ -129,7 +129,7 @@ src/main/java/com/example/FastX/
 └── FastXApplication.java
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Application Properties
 
@@ -184,7 +184,7 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 - **Email Username**: Gmail address for sending notifications
 - **Email Password**: App-specific password for Gmail
 
-## 🐳 Docker Setup
+## Docker Setup
 
 ### Dockerfile
 
@@ -223,7 +223,7 @@ You can override application properties using environment variables:
 - `SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_ID` - Google OAuth2 client ID
 - `SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_SECRET` - Google OAuth2 client secret
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /api/auth/register/passenger` - Register a new passenger
@@ -277,14 +277,14 @@ You can override application properties using environment variables:
 - `GET /api/admin/bookings/{id}` - Get booking by ID
 - `DELETE /api/admin/bookings/{id}` - Delete a booking
 
-## 📚 API Documentation
+## API Documentation
 
 Once the application is running, access the Swagger UI documentation at:
 ```
 http://localhost:8080/swagger-ui/index.html
 ```
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### Tables
 - **users** - User information (passengers, operators, admins)
@@ -300,20 +300,20 @@ http://localhost:8080/swagger-ui/index.html
 - **RefundStatus**: PENDING, APPROVED, REJECTED
 - **AuthProvider**: LOCAL, GOOGLE
 
-## 🔐 Security
+## Security
 
 - **JWT Authentication** - Token-based authentication for secured endpoints
 - **Role-Based Access Control** - Different access levels for passengers, operators, and admins
 - **Password Encryption** - BCrypt encryption for password storage
 - **OAuth2 Integration** - Google OAuth2 for social login
 
-## 📧 Email Features
+## Email Features
 
 - **Booking Confirmation** - Automatic email on successful booking
 - **Password Reset** - Temporary password sent via email
 - Uses Thymeleaf templates for HTML email generation
 
-## 🚀 Running the Application
+## Running the Application
 
 ### Prerequisites
 - Java 21
