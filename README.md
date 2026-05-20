@@ -345,7 +345,7 @@ mvn spring-boot:run
 
 The application will start on `http://localhost:8080`
 
-## 📝 License
+## License
 
 This project is licensed under the Apache 2.0 License.
 
