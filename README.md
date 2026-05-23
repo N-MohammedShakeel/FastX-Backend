@@ -5,6 +5,7 @@ A comprehensive REST API backend for a bus ticket booking platform that handles 
 ## Features
 
 ### User Management
+
 - **Passenger Registration & Login** - Register and authenticate passengers
 - **Operator Registration & Login** - Register and authenticate bus operators
 - **Google OAuth2 Integration** - Sign up/login using Google account
@@ -13,23 +14,27 @@ A comprehensive REST API backend for a bus ticket booking platform that handles 
 - **Wallet System** - Add money to wallet for booking tickets
 
 ### Bus Operations
+
 - **Bus Management** - Add, update, delete buses
 - **Route Management** - Add, update, delete routes with departure times
 - **Seat Availability** - Check available seats for a specific bus
 - **Bus Categories** - Support for AC, Sleeper, and various amenities (water bottle, blanket, TV, charging point)
 
 ### Booking System
+
 - **Ticket Booking** - Book tickets with multiple seats
 - **Booking History** - View all, active, and past bookings
 - **Booking Confirmation** - Email notifications for successful bookings
 - **Booking Cancellation** - Cancel bookings by operators
 
 ### Refund System
+
 - **Refund Requests** - Passengers can request refunds
 - **Refund Processing** - Operators can approve or reject refund requests
 - **Wallet Updates** - Automatic wallet updates on refund approval
 
 ### Admin Features
+
 - **User Management** - View and delete passengers and operators
 - **Route Management** - View and delete routes
 - **Booking Oversight** - View all bookings and delete if needed
@@ -199,16 +204,19 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 ### Build and Run with Docker
 
 1. **Build the JAR file:**
+
 ```bash
 mvn clean package
 ```
 
 2. **Build the Docker image:**
+
 ```bash
 docker build -t fastx-backend .
 ```
 
 3. **Run the container:**
+
 ```bash
 docker run -p 8080:8080 -e SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/hexaware --name fastx-backend fastx-backend
 ```
@@ -216,6 +224,7 @@ docker run -p 8080:8080 -e SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.intern
 ### Docker Environment Variables
 
 You can override application properties using environment variables:
+
 - `SPRING_DATASOURCE_URL` - Database connection URL
 - `SPRING_DATASOURCE_USERNAME` - Database username
 - `SPRING_DATASOURCE_PASSWORD` - Database password
@@ -226,6 +235,7 @@ You can override application properties using environment variables:
 ## API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/register/passenger` - Register a new passenger
 - `POST /api/auth/register/operator` - Register a new operator
 - `POST /api/auth/login` - User login
@@ -233,6 +243,7 @@ You can override application properties using environment variables:
 - `POST /api/auth/forgot-password` - Request password reset
 
 ### Passenger APIs
+
 - `GET /api/passenger/profile` - Get passenger profile
 - `PUT /api/passenger/profile` - Update passenger profile
 - `GET /api/passenger/routes` - Get all routes
@@ -248,6 +259,7 @@ You can override application properties using environment variables:
 - `PUT /api/passenger/password` - Update password
 
 ### Operator APIs
+
 - `GET /api/operator/profile` - Get operator profile
 - `PUT /api/operator/profile` - Update operator profile
 - `GET /api/operator/bus` - Get operator's buses
@@ -267,6 +279,7 @@ You can override application properties using environment variables:
 - `GET /api/operator/stats` - Get operator statistics
 
 ### Admin APIs
+
 - `GET /api/admin/passengers` - Get all passengers
 - `DELETE /api/admin/passengers/{id}` - Delete a passenger
 - `GET /api/admin/operators` - Get all operators
@@ -279,14 +292,30 @@ You can override application properties using environment variables:
 
 ## API Documentation
 
-Once the application is running, access the Swagger UI documentation at:
-```
+FastX backend uses OpenAPI (Swagger UI) for interactive API documentation, endpoint testing, request/response inspection, and schema visualization.
+
+Once the application is running, access the API documentation at:
+
+```txt
 http://localhost:8080/swagger-ui/index.html
 ```
+
+### OpenAPI / Swagger Documentation
+
+The API documentation provides:
+
+- Interactive endpoint testing
+- JWT secured endpoint support
+- Request and response schema visualization
+- Role-based API separation (`PASSENGER`, `OPERATOR`, `ADMIN`)
+- Authentication, booking, refund, route, and management APIs
+
+![OpenAPI Documentation](assets/openapi-documentations.png)
 
 ## Database Schema
 
 ### Tables
+
 - **users** - User information (passengers, operators, admins)
 - **buses** - Bus details and amenities
 - **routes** - Route information with departure times
@@ -295,6 +324,7 @@ http://localhost:8080/swagger-ui/index.html
 - **refunds** - Refund requests and status
 
 ### Enums
+
 - **Role**: ADMIN, PASSENGER, OPERATOR
 - **BookingStatus**: BOOKED, CONFIRMED, PROCESSING, CANCELLED, COMPLETED
 - **RefundStatus**: PENDING, APPROVED, REJECTED
@@ -316,6 +346,7 @@ http://localhost:8080/swagger-ui/index.html
 ## Running the Application
 
 ### Prerequisites
+
 - Java 21
 - Maven 3.6+
 - MySQL 8.0+
@@ -325,20 +356,23 @@ http://localhost:8080/swagger-ui/index.html
 ### Local Development
 
 1. **Clone the repository**
+
 ```bash
 git clone <repository-url>
 cd FastX-Backend
 ```
 
 2. **Configure application.properties**
-Update the configuration file with your database and OAuth2 credentials.
+   Update the configuration file with your database and OAuth2 credentials.
 
 3. **Create MySQL database**
+
 ```sql
 CREATE DATABASE hexaware;
 ```
 
 4. **Run the application**
+
 ```bash
 mvn spring-boot:run
 ```
@@ -348,4 +382,3 @@ The application will start on `http://localhost:8080`
 ## License
 
 This project is licensed under the Apache 2.0 License.
-
